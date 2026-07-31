@@ -1,0 +1,5 @@
+GitHub Pages (国际): https://lancers01.github.io/ryuunichi-menu/
+仓库: https://github.com/Lancers01/ryuunichi-menu
+EdgeOne Pages (国内): https://ryuunichi-menu-dpdm106wmj5g.edgeone.cool?eo_token=aa2d678f0dd018e105ab8915740aa65e&eo_time=1785539132
+部署时间: 2026-08-01
+注意: EdgeOne 链接带临时token，可能过期，建议在控制台设为公开访问

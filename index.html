@@ -34,7 +34,42 @@
   .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  /* ====== 图片菜单（刺身/和牛/清酒）====== */
+  /* ====== 刺身/和牛 海报式数据菜单 ====== */
+  .poster { padding: 24px 16px; }
+  .poster-sashimi { background: #0e2a4d; padding: 22px 16px 26px; color: #fff; }
+  .poster-beef { background: #c0392b; padding: 22px 16px 26px; color: #fff; }
+  .poster-inner { background: #faf5ea; padding: 18px 16px; border-radius: 4px; color: #2c2c2a; }
+  .poster-brand { display: flex; justify-content: space-between; align-items: center; padding: 0 4px 14px; margin-bottom: 4px; }
+  .brand-logo { font-size: 30px; font-weight: 900; letter-spacing: 4px; line-height: 1; }
+  .brand-info { font-size: 13px; line-height: 1.7; text-align: right; opacity: 0.92; letter-spacing: 1px; }
+
+  .banner-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+  .banner-row.single { grid-template-columns: 1fr; }
+  .banner { background: #0e2a4d; color: #fff; padding: 9px 12px; text-align: center; font-weight: 700; font-size: 17px; letter-spacing: 2px; border-radius: 2px; position: relative; }
+  .banner::after { content: ''; position: absolute; left: 8px; right: 8px; bottom: 3px; height: 2px; background: #c0392b; }
+  .banner-beef { background: #c0392b; }
+  .banner-beef::after { background: #fff; height: 1px; }
+
+  .poster-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; padding: 10px 4px 18px; }
+  .poster-cols.single { grid-template-columns: 1fr; }
+  .poster-item { display: flex; align-items: baseline; gap: 4px; padding: 5px 0; font-size: 14px; line-height: 1.5; }
+  .poster-item .pi-name { white-space: nowrap; color: #2c2c2a; }
+  .poster-item .pi-leader { flex: 1; border-bottom: 1px dotted #c0b89e; margin: 0 4px; transform: translateY(-3px); min-width: 6px; }
+  .poster-item .pi-price { color: #c0392b; font-weight: 700; white-space: nowrap; font-size: 15px; }
+  .poster-item .pi-unit { color: #666; font-size: 11px; white-space: nowrap; }
+  .poster-item.star .pi-name { color: #c0392b; font-weight: 700; }
+  .poster-item.star .pi-name::before { content: '★ '; color: #c0392b; font-weight: 700; }
+
+  .special-block { border: 2px dashed #c0392b; border-radius: 4px; padding: 12px 14px; margin-top: 16px; background: rgba(192,57,43,0.04); }
+  .special-block .star-headline { color: #c0392b; font-weight: 700; font-size: 15px; text-align: center; margin-bottom: 8px; }
+  .special-block .star-headline .pi-price { font-size: 17px; }
+  .special-block .sub-row { font-size: 13px; color: #444; line-height: 1.9; text-align: center; padding: 2px 0; }
+  .special-block .note-line { text-align: center; font-size: 12px; color: #888; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #c0b89e; }
+
+  .poster-footer-note { background: #c0392b; color: #fff; padding: 10px 14px; text-align: center; margin-top: 18px; border-radius: 2px; font-size: 13px; letter-spacing: 1px; }
+  .poster-footer-note.beef { background: transparent; color: #c0392b; border: 1.5px solid #c0392b; font-weight: 600; }
+
+  /* ====== 图片菜单（清酒）====== */
   .img-menu { width: 100%; margin: 0 auto; padding: 0; }
   .img-menu .menu-img { width: 100%; border-radius: 0; border: none; display: block; cursor: pointer; }
 
@@ -91,11 +126,11 @@
 
 <!-- 选项卡栏 -->
 <div class="tab-bar" id="tabBar">
-  <button class="tab-btn active" data-tab="sashimi"><span class="tab-icon">🍣</span>刺身<span class="tab-num">1</span></button>
-  <button class="tab-btn" data-tab="beef"><span class="tab-icon">🥩</span>和牛<span class="tab-num">2</span></button>
-  <button class="tab-btn" data-tab="seafood"><span class="tab-icon">🦞</span>活鲜<span class="tab-num">3</span></button>
-  <button class="tab-btn" data-tab="sake"><span class="tab-icon">🍶</span>清酒<span class="tab-num">4</span></button>
-  <button class="tab-btn" data-tab="cake"><span class="tab-icon">🎂</span>蛋糕<span class="tab-num">5</span></button>
+  <button class="tab-btn active" data-tab="sashimi"><span class="tab-icon">🍣</span>刺身</button>
+  <button class="tab-btn" data-tab="beef"><span class="tab-icon">🥩</span>和牛</button>
+  <button class="tab-btn" data-tab="seafood"><span class="tab-icon">🦞</span>活鲜</button>
+  <button class="tab-btn" data-tab="sake"><span class="tab-icon">🍶</span>清酒</button>
+  <button class="tab-btn" data-tab="cake"><span class="tab-icon">🎂</span>蛋糕</button>
 </div>
 <div class="tab-hint">← 左右滑动查看全部 5 个菜单 →</div>
 <div class="tab-indicator" id="tabIndicator">
@@ -106,17 +141,156 @@
   <span class="dot"></span>
 </div>
 
-<!-- ====== 刺身 ====== -->
+<!-- ====== 刺身（数据可修改）====== -->
 <div class="tab-panel active" id="panel-sashimi">
-  <div class="img-menu">
-    <img alt="刺身菜单" class="menu-img" src="sashimi_menu.jpg"/>
+  <div class="poster">
+    <div class="poster-sashimi">
+      <div class="poster-brand">
+        <div class="brand-logo">鮨·桑</div>
+        <div class="brand-info">海鲜·刺身 专门店<br/>私人定制 上海同城宅急送</div>
+      </div>
+      <div class="poster-inner">
+
+        <div class="banner-row">
+          <div class="banner">冰鲜三文鱼</div>
+          <div class="banner">超低温蓝鳍金枪</div>
+        </div>
+        <div class="poster-cols">
+          <div>
+            <div class="poster-item star"><span class="pi-name">帝王鲑</span><span class="pi-leader"></span><span class="pi-price">¥138</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">挪威纯肉</span><span class="pi-leader"></span><span class="pi-price">¥50</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">挪威鱼腩</span><span class="pi-leader"></span><span class="pi-price">¥54</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">挪威双拼</span><span class="pi-leader"></span><span class="pi-price">¥52</span><span class="pi-unit">/200g</span></div>
+          </div>
+          <div>
+            <div class="poster-item"><span class="pi-name">大腹</span><span class="pi-leader"></span><span class="pi-price">¥158</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">中腹</span><span class="pi-leader"></span><span class="pi-price">¥128</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">赤身</span><span class="pi-leader"></span><span class="pi-price">¥98</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">大腹精品位</span><span class="pi-leader"></span><span class="pi-price">¥178</span><span class="pi-unit">/200g</span></div>
+          </div>
+        </div>
+
+        <div class="banner-row single">
+          <div class="banner">其他类刺身</div>
+        </div>
+        <div class="poster-cols">
+          <div>
+            <div class="poster-item"><span class="pi-name">去壳甜虾</span><span class="pi-leader"></span><span class="pi-price">¥28</span><span class="pi-unit">/板(30只)</span></div>
+            <div class="poster-item"><span class="pi-name">甜虾-LL</span><span class="pi-leader"></span><span class="pi-price">¥8</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">牡丹虾</span><span class="pi-leader"></span><span class="pi-price">¥20</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">2号新西兰鳌虾</span><span class="pi-leader"></span><span class="pi-price">¥68</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">3号新西兰鳌虾</span><span class="pi-leader"></span><span class="pi-price">¥48</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">莫桑比克鳌虾</span><span class="pi-leader"></span><span class="pi-price">¥58</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">红魔虾</span><span class="pi-leader"></span><span class="pi-price">¥98</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">北极贝M</span><span class="pi-leader"></span><span class="pi-price">¥7</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">西鳞鱼籽</span><span class="pi-leader"></span><span class="pi-price">¥18</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">白标伊比利亚火腿</span><span class="pi-leader"></span><span class="pi-price">¥99</span><span class="pi-unit">/40g</span></div>
+            <div class="poster-item"><span class="pi-name">活北极贝</span><span class="pi-leader"></span><span class="pi-price">¥48</span><span class="pi-unit">/只</span></div>
+          </div>
+          <div>
+            <div class="poster-item"><span class="pi-name">木盒海胆</span><span class="pi-leader"></span><span class="pi-price">¥120</span><span class="pi-unit">/70g</span></div>
+            <div class="poster-item"><span class="pi-name">大盒海胆</span><span class="pi-leader"></span><span class="pi-price">¥380</span><span class="pi-unit">/160g</span></div>
+            <div class="poster-item"><span class="pi-name">野生紫胆</span><span class="pi-leader"></span><span class="pi-price">¥680</span><span class="pi-unit">/160g</span></div>
+            <div class="poster-item"><span class="pi-name">鱼子酱</span><span class="pi-leader"></span><span class="pi-price">¥38</span><span class="pi-unit">/盒(10g)</span></div>
+            <div class="poster-item"><span class="pi-name">北太平洋鱿鱼</span><span class="pi-leader"></span><span class="pi-price">¥20</span><span class="pi-unit">/6-7片</span></div>
+            <div class="poster-item"><span class="pi-name">韩国大生蚝</span><span class="pi-leader"></span><span class="pi-price">¥18</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">金砖鹅肝(片)</span><span class="pi-leader"></span><span class="pi-price">¥8</span><span class="pi-unit">/片</span></div>
+            <div class="poster-item"><span class="pi-name">蓝莓红酒鹅肝</span><span class="pi-leader"></span><span class="pi-price">¥28</span><span class="pi-unit">/100g</span></div>
+            <div class="poster-item"><span class="pi-name">刺身贝柱</span><span class="pi-leader"></span><span class="pi-price">¥18</span><span class="pi-unit">/2-3片</span></div>
+            <div class="poster-item"><span class="pi-name">黑标伊比利亚火腿</span><span class="pi-leader"></span><span class="pi-price">¥170</span><span class="pi-unit">/40g</span></div>
+            <div class="poster-item"><span class="pi-name">生日蛋糕刺身花盘</span><span class="pi-leader"></span><span class="pi-price">278起</span></div>
+          </div>
+        </div>
+
+        <div class="special-block">
+          <div class="poster-item star"><span class="pi-name">纯血A5和牛刺身</span><span class="pi-leader"></span><span class="pi-price">¥68</span><span class="pi-unit">/份100g</span></div>
+          <div class="sub-row">小竹荚 / 师鱼 / 鲷鱼 / 黑金鲍鱼 / 象拔蚌 / 玫瑰龙虾</div>
+          <div class="sub-row">鲜活海胆 / 大竹荚 / 帝王蟹 / 澳龙 / 各类海钓鱼</div>
+          <div class="sub-row">特色打边炉 / 东星斑 / 鲍鱼 / 斑节虾 / 各类火锅海鲜</div>
+          <div class="note-line">活鲜实价 · 提前 1 天预定</div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ====== 和牛 ====== -->
+<!-- ====== 和牛（数据可修改）====== -->
 <div class="tab-panel" id="panel-beef">
-  <div class="img-menu">
-    <img alt="隆牛肉铺和牛菜单" class="menu-img" src="beef_menu.jpg"/>
+  <div class="poster">
+    <div class="poster-beef">
+      <div class="poster-brand">
+        <div class="brand-logo">隆牛肉铺</div>
+        <div class="brand-info">和牛 专门店<br/>私人定制 上海同城宅急送</div>
+      </div>
+      <div class="poster-inner">
+
+        <div class="banner-row">
+          <div class="banner banner-beef">日系和牛</div>
+          <div class="banner banner-beef">澳洲天花板</div>
+        </div>
+        <div class="poster-cols">
+          <div>
+            <div class="poster-item"><span class="pi-name">A5+ 西冷</span><span class="pi-leader"></span><span class="pi-price">¥400</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">A5+ 肉眼</span><span class="pi-leader"></span><span class="pi-price">¥380</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">A5+ 木盒火锅卷</span><span class="pi-leader"></span><span class="pi-price">¥325</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">A5 肉眼</span><span class="pi-leader"></span><span class="pi-price">¥268</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">A5 西冷</span><span class="pi-leader"></span><span class="pi-price">¥278</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">A5 菲力</span><span class="pi-leader"></span><span class="pi-price">¥198</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">A5 牛小排</span><span class="pi-leader"></span><span class="pi-price">¥188</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">A5 和牛会扒</span><span class="pi-leader"></span><span class="pi-price">¥80</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">A2 西冷</span><span class="pi-leader"></span><span class="pi-price">¥128</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">A2 肉眼</span><span class="pi-leader"></span><span class="pi-price">¥128</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">A2 牛小排</span><span class="pi-leader"></span><span class="pi-price">¥78</span><span class="pi-unit">/120g</span></div>
+          </div>
+          <div>
+            <div class="poster-item"><span class="pi-name">M10 武田西冷</span><span class="pi-leader"></span><span class="pi-price">¥300</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">M10 武田肉眼</span><span class="pi-leader"></span><span class="pi-price">¥338</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">M10 武田牛小排</span><span class="pi-leader"></span><span class="pi-price">¥228</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">M10 武田上脑</span><span class="pi-leader"></span><span class="pi-price">¥80</span><span class="pi-unit">/100g</span></div>
+            <div class="poster-item"><span class="pi-name">M10 卡鲁比肥牛</span><span class="pi-leader"></span><span class="pi-price">¥35</span><span class="pi-unit">/100g</span></div>
+          </div>
+        </div>
+
+        <div class="banner-row single">
+          <div class="banner banner-beef">金奖和牛</div>
+        </div>
+        <div class="poster-cols single">
+          <div>
+            <div class="poster-item"><span class="pi-name">M9 金奖 pardoo 肉眼</span><span class="pi-leader"></span><span class="pi-price">¥218</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">M9 金奖 pardoo 西冷</span><span class="pi-leader"></span><span class="pi-price">¥188</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">M9 金奖 pardoo 菲力</span><span class="pi-leader"></span><span class="pi-price">¥198</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">M9 金奖 pardoo 羽下肉</span><span class="pi-leader"></span><span class="pi-price">¥138</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">M9 金奖 肩胛小排</span><span class="pi-leader"></span><span class="pi-price">¥108</span><span class="pi-unit">/150g</span></div>
+            <div class="poster-item"><span class="pi-name">M9 金奖 上脑薄片</span><span class="pi-leader"></span><span class="pi-price">¥60</span><span class="pi-unit">/100g</span></div>
+          </div>
+        </div>
+
+        <div class="banner-row single">
+          <div class="banner banner-beef">其他</div>
+        </div>
+        <div class="poster-cols single">
+          <div>
+            <div class="poster-item"><span class="pi-name">M7 银奖 pardoo 肉眼</span><span class="pi-leader"></span><span class="pi-price">¥188</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">M7 银奖 pardoo 西冷</span><span class="pi-leader"></span><span class="pi-price">¥178</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">和牛牛尾</span><span class="pi-leader"></span><span class="pi-price">¥128</span><span class="pi-unit">/500g</span></div>
+            <div class="poster-item"><span class="pi-name">和牛金钱腱（原包称重）</span><span class="pi-leader"></span><span class="pi-price">¥188</span><span class="pi-unit">/1000g</span></div>
+            <div class="poster-item"><span class="pi-name">和牛肋条（原包称重）</span><span class="pi-leader"></span><span class="pi-price">¥330</span><span class="pi-unit">/1000g</span></div>
+            <div class="poster-item"><span class="pi-name">安格斯肥牛卷</span><span class="pi-leader"></span><span class="pi-price">¥30</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">安格斯精选上脑卷</span><span class="pi-leader"></span><span class="pi-price">¥35</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">巴彦卓尔羔羊肉卷</span><span class="pi-leader"></span><span class="pi-price">¥30</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">超级大青虾仁</span><span class="pi-leader"></span><span class="pi-price">¥38</span><span class="pi-unit">/500g</span></div>
+            <div class="poster-item"><span class="pi-name">内蒙古法式羊排</span><span class="pi-leader"></span><span class="pi-price">¥65</span><span class="pi-unit">/500g</span></div>
+            <div class="poster-item"><span class="pi-name">巴西西冷肋条</span><span class="pi-leader"></span><span class="pi-price">¥160</span><span class="pi-unit">/1000g</span></div>
+            <div class="poster-item"><span class="pi-name">雪花牛仔骨</span><span class="pi-leader"></span><span class="pi-price">¥115</span><span class="pi-unit">/500g</span></div>
+            <div class="poster-item"><span class="pi-name">乌拉圭级牛肋条</span><span class="pi-leader"></span><span class="pi-price">¥150</span><span class="pi-unit">/1000g</span></div>
+          </div>
+        </div>
+
+        <div class="poster-footer-note beef">其他整条定制，稀有烤肉部位，减脂牛排等欢迎咨询</div>
+
+      </div>
+    </div>
   </div>
 </div>
 
@@ -142,7 +316,7 @@
     <div class="section">
       <div class="section-title">每日活鲜</div>
       <div class="item-list">
-        <div class="item"><div class="item-left"><div class="item-name">松叶蟹</div><div class="item-desc">2斤 · 可刺身/打边炉</div></div><div class="item-right"><div class="item-price">¥288</div></div></div>
+        <div class="item"><div class="item-left"><div class="item-name">松叶蟹</div><div class="item-desc">2斤 · 可刺身/打边炉</div></div><div class="item-right"><div class="item-price">¥328</div></div></div>
         <div class="item"><div class="item-left"><div class="item-name">小竹荚</div><div class="item-desc">一条</div></div><div class="item-right"><div class="item-price">¥85</div></div></div>
         <div class="item"><div class="item-left"><div class="item-name">大竹荚</div><div class="item-desc">约3-4斤/条</div></div><div class="item-right"><div class="item-price">¥198<span class="item-unit">/斤</span></div></div></div>
         <div class="item"><div class="item-left"><div class="item-name">𫚕鱼</div><div class="item-desc">200g</div></div><div class="item-right"><div class="item-price">¥108</div></div></div>

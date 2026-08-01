@@ -1,12 +1,4 @@
-GitHub Pages (国际): https://lancers01.github.io/ryuunichi-menu/
-仓库: https://github.com/Lancers01/ryuunichi-menu
-EdgeOne Pages (国内-GitHub导入项目): https://ryuunichi-menu-skizaj6f.edgeone.cool?eo_token=825939c4445e43e84d5cb3f4e425115b&eo_time=1785542585
-EdgeOne Pages (Upload项目-Global区,国内不可用): https://ryuunichi-menu-upload-3nnir9s2.edgeone.cool
-EdgeOne CLI 路径: C:/Users/Lancer/.workbuddy/binaries/node/versions/22.22.2/edgeone
-EdgeOne Upload项目名: ryuunichi-menu-upload (可用CLI直接更新,但部署在Global区,国内访问401)
-部署时间: 2026-08-01
-注意:
-- EdgeOne .cool 域名带 token,token 会过期,过期后需在控制台重新点"预览"获取新链接
-- ryuunichi-menu (GitHub导入) 项目可在中国大陆访问,但每次更新需通过git push触发
-- ryuunichi-menu-upload (CLI上传) 项目在 Global(MLC excluded) 区,中国大陆访问返回401
-- 更新菜单后: git push 更新GitHub Pages + ryuunichi-menu项目; 或在控制台重新部署获取新链接
+→ 国内访问链接（2026-08-01 最新）: https://ryuunichi-menu-upload-3nnir9s2.edgeone.cool?eo_token=354f92b7700fd975a30b00218b4407e5&eo_time=1785555375
+→ CLI 更新命令: "C:/Users/Lancer/.workbuddy/binaries/node/versions/22.22.2/edgeone" makers deploy "F:/WorkBuddy/deploy-tabs" -n ryuunichi-menu-upload
+→ GitHub Pages (国际): https://lancers01.github.io/ryuunichi-menu/
+→ GitHub 仓库: https://github.com/Lancers01/ryuunichi-menu

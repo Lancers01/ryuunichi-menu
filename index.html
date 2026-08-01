@@ -6,6 +6,7 @@
 <title>隆牛日料宅配 · 精选菜单</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: hidden; }
   body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #faf9f6; color: #2c2c2a; }
 
   /* ====== 顶部品牌 ====== */
@@ -34,40 +35,57 @@
   .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  /* ====== 刺身/和牛 海报式数据菜单 ====== */
-  .poster { padding: 24px 16px; }
-  .poster-sashimi { background: #0e2a4d; padding: 22px 16px 26px; color: #fff; }
-  .poster-beef { background: #c0392b; padding: 22px 16px 26px; color: #fff; }
-  .poster-inner { background: #faf5ea; padding: 18px 16px; border-radius: 4px; color: #2c2c2a; }
-  .poster-brand { display: flex; justify-content: space-between; align-items: center; padding: 0 4px 14px; margin-bottom: 4px; }
-  .brand-logo { font-size: 30px; font-weight: 900; letter-spacing: 4px; line-height: 1; }
-  .brand-info { font-size: 13px; line-height: 1.7; text-align: right; opacity: 0.92; letter-spacing: 1px; }
+  /* ====== 刺身/和牛 海报式数据菜单（手机优先）====== */
+  .poster { padding: 16px 10px; }
+  .poster-sashimi { background: #0e2a4d; padding: 16px 10px 18px; color: #fff; }
+  .poster-beef { background: #c0392b; padding: 16px 10px 18px; color: #fff; }
+  .poster-inner { background: #faf5ea; padding: 12px 10px; border-radius: 4px; color: #2c2c2a; }
+  .poster-brand { display: flex; justify-content: space-between; align-items: center; padding: 0 2px 10px; margin-bottom: 2px; }
+  .brand-logo { font-size: 24px; font-weight: 900; letter-spacing: 3px; line-height: 1; }
+  .brand-info { font-size: 11px; line-height: 1.6; text-align: right; opacity: 0.92; letter-spacing: 0.5px; }
 
-  .banner-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
-  .banner-row.single { grid-template-columns: 1fr; }
-  .banner { background: #0e2a4d; color: #fff; padding: 9px 12px; text-align: center; font-weight: 700; font-size: 17px; letter-spacing: 2px; border-radius: 2px; position: relative; }
+  .banner-row { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 6px; }
+  .banner { background: #0e2a4d; color: #fff; padding: 8px 10px; text-align: center; font-weight: 700; font-size: 15px; letter-spacing: 1px; border-radius: 2px; position: relative; }
   .banner::after { content: ''; position: absolute; left: 8px; right: 8px; bottom: 3px; height: 2px; background: #c0392b; }
   .banner-beef { background: #c0392b; }
   .banner-beef::after { background: #fff; height: 1px; }
 
-  .poster-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; padding: 10px 4px 18px; }
-  .poster-cols.single { grid-template-columns: 1fr; }
-  .poster-item { display: flex; align-items: baseline; gap: 4px; padding: 5px 0; font-size: 14px; line-height: 1.5; }
+  .poster-cols { display: grid; grid-template-columns: 1fr; gap: 0; padding: 4px 2px 14px; }
+  .poster-item { display: flex; align-items: baseline; gap: 2px; padding: 5px 0; font-size: 13.5px; line-height: 1.45; }
   .poster-item .pi-name { white-space: nowrap; color: #2c2c2a; }
-  .poster-item .pi-leader { flex: 1; border-bottom: 1px dotted #c0b89e; margin: 0 4px; transform: translateY(-3px); min-width: 6px; }
-  .poster-item .pi-price { color: #c0392b; font-weight: 700; white-space: nowrap; font-size: 15px; }
-  .poster-item .pi-unit { color: #666; font-size: 11px; white-space: nowrap; }
+  .poster-item .pi-leader { flex: 1; border-bottom: 1px dotted #c0b89e; margin: 0 3px; transform: translateY(-3px); min-width: 6px; }
+  .poster-item .pi-price { color: #c0392b; font-weight: 700; white-space: nowrap; font-size: 14px; }
+  .poster-item .pi-unit { color: #666; font-size: 10.5px; white-space: nowrap; }
   .poster-item.star .pi-name { color: #c0392b; font-weight: 700; }
   .poster-item.star .pi-name::before { content: '★ '; color: #c0392b; font-weight: 700; }
 
-  .special-block { border: 2px dashed #c0392b; border-radius: 4px; padding: 12px 14px; margin-top: 16px; background: rgba(192,57,43,0.04); }
-  .special-block .star-headline { color: #c0392b; font-weight: 700; font-size: 15px; text-align: center; margin-bottom: 8px; }
-  .special-block .star-headline .pi-price { font-size: 17px; }
-  .special-block .sub-row { font-size: 13px; color: #444; line-height: 1.9; text-align: center; padding: 2px 0; }
-  .special-block .note-line { text-align: center; font-size: 12px; color: #888; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #c0b89e; }
+  .special-block { border: 2px dashed #c0392b; border-radius: 4px; padding: 10px 10px; margin-top: 12px; background: rgba(192,57,43,0.04); }
+  .special-block .star-headline { color: #c0392b; font-weight: 700; font-size: 14px; text-align: center; margin-bottom: 6px; }
+  .special-block .star-headline .pi-price { font-size: 15px; }
+  .special-block .sub-row { font-size: 12px; color: #444; line-height: 1.8; text-align: center; padding: 2px 0; }
+  .special-block .note-line { text-align: center; font-size: 11px; color: #888; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #c0b89e; }
 
-  .poster-footer-note { background: #c0392b; color: #fff; padding: 10px 14px; text-align: center; margin-top: 18px; border-radius: 2px; font-size: 13px; letter-spacing: 1px; }
+  .poster-footer-note { background: #c0392b; color: #fff; padding: 8px 10px; text-align: center; margin-top: 14px; border-radius: 2px; font-size: 12px; letter-spacing: 0.5px; }
   .poster-footer-note.beef { background: transparent; color: #c0392b; border: 1.5px solid #c0392b; font-weight: 600; }
+
+  /* 宽屏恢复两列 */
+  @media (min-width: 640px) {
+    .poster { padding: 24px 16px; }
+    .poster-sashimi, .poster-beef { padding: 22px 16px 26px; }
+    .poster-inner { padding: 18px 16px; }
+    .brand-logo { font-size: 30px; letter-spacing: 4px; }
+    .brand-info { font-size: 13px; line-height: 1.7; letter-spacing: 1px; }
+    .banner-row { grid-template-columns: 1fr 1fr; }
+    .banner { font-size: 17px; letter-spacing: 2px; padding: 9px 12px; }
+    .poster-cols { grid-template-columns: 1fr 1fr; gap: 4px 24px; padding: 10px 4px 18px; }
+    .poster-item { font-size: 14px; padding: 5px 0; }
+    .poster-item .pi-price { font-size: 15px; }
+    .poster-item .pi-unit { font-size: 11px; }
+    .special-block { padding: 12px 14px; margin-top: 16px; }
+    .special-block .star-headline { font-size: 15px; }
+    .special-block .sub-row { font-size: 13px; }
+    .poster-footer-note { padding: 10px 14px; font-size: 13px; }
+  }
 
   /* ====== 图片菜单（清酒）====== */
   .img-menu { width: 100%; margin: 0 auto; padding: 0; }

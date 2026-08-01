@@ -51,10 +51,8 @@
   .banner-beef::after { background: #fff; height: 1px; }
 
   .poster-cols { display: grid; grid-template-columns: 1fr; gap: 0; padding: 4px 2px 14px; }
-
-  /* 分类对：手机上垂直排列，宽屏并排 */
-  .category-pair { display: grid; grid-template-columns: 1fr; gap: 14px; padding: 4px 2px 14px; }
-  .category-block .banner { margin-bottom: 8px; }
+  /* 始终两栏（刺身三文鱼/金枪鱼并排） */
+  .poster-cols.twin { grid-template-columns: 1fr 1fr; gap: 2px 10px; padding: 6px 2px 14px; }
   .poster-item { display: flex; align-items: baseline; gap: 2px; padding: 5px 0; font-size: 13.5px; line-height: 1.45; }
   .poster-item .pi-name { white-space: nowrap; color: #2c2c2a; }
   .poster-item .pi-leader { flex: 1; border-bottom: 1px dotted #c0b89e; margin: 0 3px; transform: translateY(-3px); min-width: 6px; }
@@ -82,7 +80,7 @@
     .banner-row { grid-template-columns: 1fr 1fr; }
     .banner { font-size: 17px; letter-spacing: 2px; padding: 9px 12px; }
     .poster-cols { grid-template-columns: 1fr 1fr; gap: 4px 24px; padding: 10px 4px 18px; }
-    .category-pair { grid-template-columns: 1fr 1fr; gap: 24px; padding: 10px 4px 18px; }
+    .poster-cols.twin { gap: 4px 24px; padding: 10px 4px 18px; }
     .poster-item { font-size: 14px; padding: 5px 0; }
     .poster-item .pi-price { font-size: 15px; }
     .poster-item .pi-unit { font-size: 11px; }
@@ -174,16 +172,18 @@
       </div>
       <div class="poster-inner">
 
-        <div class="category-pair">
-          <div class="category-block">
-            <div class="banner">冰鲜三文鱼</div>
+        <div class="banner-row">
+          <div class="banner">冰鲜三文鱼</div>
+          <div class="banner">超低温蓝鳍金枪</div>
+        </div>
+        <div class="poster-cols twin">
+          <div>
             <div class="poster-item star"><span class="pi-name">帝王鲑</span><span class="pi-leader"></span><span class="pi-price">¥138</span><span class="pi-unit">/200g</span></div>
             <div class="poster-item"><span class="pi-name">挪威纯肉</span><span class="pi-leader"></span><span class="pi-price">¥50</span><span class="pi-unit">/200g</span></div>
             <div class="poster-item"><span class="pi-name">挪威鱼腩</span><span class="pi-leader"></span><span class="pi-price">¥54</span><span class="pi-unit">/200g</span></div>
             <div class="poster-item"><span class="pi-name">挪威双拼</span><span class="pi-leader"></span><span class="pi-price">¥52</span><span class="pi-unit">/200g</span></div>
           </div>
-          <div class="category-block">
-            <div class="banner">超低温蓝鳍金枪</div>
+          <div>
             <div class="poster-item"><span class="pi-name">大腹</span><span class="pi-leader"></span><span class="pi-price">¥158</span><span class="pi-unit">/200g</span></div>
             <div class="poster-item"><span class="pi-name">中腹</span><span class="pi-leader"></span><span class="pi-price">¥128</span><span class="pi-unit">/200g</span></div>
             <div class="poster-item"><span class="pi-name">赤身</span><span class="pi-leader"></span><span class="pi-price">¥98</span><span class="pi-unit">/200g</span></div>

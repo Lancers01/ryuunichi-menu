@@ -21,6 +21,7 @@
   .tab-btn:hover { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.15); }
   .tab-btn.active { color: #fff; background: #c0392b; font-weight: 700; border-color: #e74c3c; box-shadow: 0 4px 16px rgba(192,57,43,0.4); transform: translateY(-2px); }
   .tab-btn .tab-icon { display: block; font-size: 28px; margin-bottom: 6px; line-height: 1; }
+  .tab-btn .tab-icon-img { width: 28px; height: 28px; object-fit: cover; border-radius: 50%; vertical-align: middle; }
   .tab-btn .tab-num { display: inline-block; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.12); border-radius: 50%; width: 18px; height: 18px; line-height: 18px; text-align: center; margin-left: 4px; vertical-align: middle; }
   .tab-btn.active .tab-num { color: #fff; background: rgba(255,255,255,0.25); }
 
@@ -52,6 +53,10 @@
   .banner { background: #0f3870; color: #fff; padding: 8px 10px; text-align: center; font-weight: 900; font-size: 15px; letter-spacing: 1px; border-radius: 2px; position: relative; }
   .banner::after { content: ''; position: absolute; left: 8px; right: 8px; bottom: 3px; height: 2px; background: #c0392b; }
   .poster-sashimi .banner { background: linear-gradient(180deg, #154b94 0%, #0e2d58 100%); }
+  .poster-cake { background: #e67e22; padding: 16px 10px 18px; color: #fff; }
+  .poster-cake .brand-logo { font-family: "Source Han Serif CN", "Noto Serif SC", "STSong", "SimSun", serif; font-size: 34px; letter-spacing: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
+  .poster-cake .banner { background: linear-gradient(180deg, #e67e22 0%, #c0392b 100%); }
+  .poster-cake .banner::after { background: #fff; height: 1px; }
   .banner-beef { background: linear-gradient(180deg, #d94436 0%, #a82f25 100%); }
   .banner-beef::after { background: #fff; height: 1px; }
 
@@ -101,6 +106,7 @@
   /* ====== 图片菜单（清酒）====== */
   .img-menu { width: 100%; margin: 0 auto; padding: 0; }
   .img-menu .menu-img { width: 100%; border-radius: 0; border: none; display: block; cursor: pointer; }
+  .img-menu .menu-img.no-zoom { cursor: default; }
 
   /* ====== 活鲜菜单 ====== */
   .seafood-container { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
@@ -123,21 +129,23 @@
   .price-option strong { color: #c0392b; font-size: 16px; }
 
   /* ====== 蛋糕菜单 ====== */
-  .cake-container { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
-  .cake-note { background: #fff8f0; border-left: 3px solid #e67e22; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 13px; color: #666; margin-bottom: 28px; line-height: 1.7; }
-  .tier { margin-bottom: 36px; }
-  .tier-title { font-size: 15px; font-weight: 600; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; padding-left: 2px; display: flex; align-items: center; gap: 8px; }
-  .tier-title::after { content: ''; flex: 1; height: 1px; background: #ddd; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-  .card { background: #fff; border-radius: 12px; border: 1px solid #eee; overflow: hidden; transition: box-shadow 0.2s; }
-  .card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
-  .card-img { width: 100%; height: 220px; object-fit: cover; object-position: center; background: #f5f0eb; display: block; cursor: pointer; }
-  .card-body { padding: 14px 16px 16px; }
-  .card-name { font-size: 14px; font-weight: 500; color: #444; margin-bottom: 6px; }
-  .card-price { font-size: 20px; font-weight: 700; color: #c0392b; }
+  .cake-note { background: #fff8f0; border-left: 3px solid #e67e22; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 13px; color: #666; margin-bottom: 18px; line-height: 1.7; }
+  .cake-note strong { color: #e67e22; }
+  .cake-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .cake-card { background: #fff; border-radius: 8px; border: 1px solid #eee; overflow: hidden; }
+  .cake-card-img { width: 100%; height: 180px; object-fit: cover; object-position: center; background: #f5f0eb; display: block; cursor: pointer; }
+  .cake-card-body { padding: 10px 12px 12px; }
+  .cake-card-name { font-size: 13px; font-weight: 500; color: #555; margin-bottom: 4px; }
+  .cake-card-price { font-size: 18px; font-weight: 700; color: #c0392b; }
+  @media (min-width: 640px) {
+    .cake-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+    .cake-card-img { height: 200px; }
+    .cake-card-name { font-size: 14px; }
+    .cake-card-price { font-size: 20px; }
+  }
 
   /* ====== 页脚 ====== */
-  .footer { text-align: center; padding: 28px 20px; color: #aaa; font-size: 12px; border-top: 1px solid #eee; }
+  .footer { text-align: center; padding: 28px 20px; color: #2c2c2a; font-size: 14px; font-weight: 700; border-top: 1px solid #eee; background: #fff8f6; letter-spacing: 1px; }
 
   /* ====== 触屏放大预览 ====== */
   .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; -webkit-tap-highlight-color: transparent; }
@@ -156,14 +164,16 @@
 <!-- 选项卡栏 -->
 <div class="tab-bar" id="tabBar">
   <button class="tab-btn active" data-tab="sashimi"><span class="tab-icon">🍣</span>刺身</button>
-  <button class="tab-btn" data-tab="beef"><span class="tab-icon">🥩</span>和牛</button>
   <button class="tab-btn" data-tab="seafood"><span class="tab-icon">🦞</span>活鲜</button>
+  <button class="tab-btn" data-tab="beef"><span class="tab-icon">🥩</span>和牛</button>
   <button class="tab-btn" data-tab="sake"><span class="tab-icon">🍶</span>清酒</button>
   <button class="tab-btn" data-tab="cake"><span class="tab-icon">🎂</span>蛋糕</button>
+  <button class="tab-btn" data-tab="snacks"><span class="tab-icon">🍻</span>下酒菜</button>
 </div>
-<div class="tab-hint">← 左右滑动查看全部 5 个菜单 →</div>
+<div class="tab-hint">← 左右滑动查看全部 6 个菜单 →</div>
 <div class="tab-indicator" id="tabIndicator">
   <span class="dot active"></span>
+  <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
@@ -176,7 +186,7 @@
     <div class="poster-sashimi">
       <div class="poster-brand">
         <div class="brand-logo">鮨·桑</div>
-        <div class="brand-info"><strong>海鲜·刺身 专门店</strong><br/>私人定制 上海同城宅急送</div>
+        <div class="brand-info"><strong>海鲜·刺身 专门店</strong><br/>上海同城宅急送 最快三小时送到</div>
       </div>
       <div class="poster-inner">
 
@@ -246,13 +256,92 @@
   </div>
 </div>
 
+<!-- ====== 活鲜 ====== -->
+<div class="tab-panel" id="panel-seafood">
+  <div class="poster">
+    <div class="poster-sashimi">
+      <div class="poster-brand">
+        <div class="brand-logo">鮨·桑</div>
+        <div class="brand-info"><strong>活鲜·海胆 专门店</strong><br/>上海同城宅急送 最快三小时送到</div>
+      </div>
+      <div class="poster-inner">
+
+        <div class="banner-row single">
+          <div class="banner">本月新品</div>
+        </div>
+        <div class="poster-cols single">
+          <div>
+            <div class="poster-item"><span class="pi-name">干式熟成金头鲷</span><span class="pi-leader"></span><span class="pi-price">¥118</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">干式熟成午鱼</span><span class="pi-leader"></span><span class="pi-price">¥158</span><span class="pi-unit">/条</span></div>
+          </div>
+        </div>
+
+        <div class="banner-row single">
+          <div class="banner">每日活鲜</div>
+        </div>
+        <div class="poster-cols single">
+          <div>
+            <div class="poster-item"><span class="pi-name">松叶蟹</span><span class="pi-leader"></span><span class="pi-price">¥328</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">小竹荚</span><span class="pi-leader"></span><span class="pi-price">¥85</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">大竹荚</span><span class="pi-leader"></span><span class="pi-price">¥198</span><span class="pi-unit">/斤</span></div>
+            <div class="poster-item"><span class="pi-name">𫚕鱼</span><span class="pi-leader"></span><span class="pi-price">¥108</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">真鲷</span><span class="pi-leader"></span><span class="pi-price">¥68</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">剥皮鱼</span><span class="pi-leader"></span><span class="pi-price">¥98</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">枪鱿鱼</span><span class="pi-leader"></span><span class="pi-price">¥298</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">金头鲷 整条造型</span><span class="pi-leader"></span><span class="pi-price">¥108</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">马友鱼</span><span class="pi-leader"></span><span class="pi-price">¥158</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">伊佐木</span><span class="pi-leader"></span><span class="pi-price">¥198</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">东星斑 整条造型</span><span class="pi-leader"></span><span class="pi-price">¥225</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">老鼠斑 整条造型</span><span class="pi-leader"></span><span class="pi-price">¥588</span><span class="pi-unit">/条</span></div>
+            <div class="poster-item"><span class="pi-name">加拿大象拔蚌</span><span class="pi-leader"></span><span class="pi-price">¥620</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">特价小象拔蚌</span><span class="pi-leader"></span><span class="pi-price">¥138</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">竹节虾</span><span class="pi-leader"></span><span class="pi-price">¥160</span><span class="pi-unit">/斤</span></div>
+            <div class="poster-item"><span class="pi-name">竹圣王</span><span class="pi-leader"></span><span class="pi-price">¥180</span><span class="pi-unit">/斤</span></div>
+            <div class="poster-item"><span class="pi-name">新西兰黑金鲍</span><span class="pi-leader"></span><span class="pi-price">¥310</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">吉娜朵生蚝 1号</span><span class="pi-leader"></span><span class="pi-price">¥49</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">吉娜朵生蚝 0号</span><span class="pi-leader"></span><span class="pi-price">¥59</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">法国钻石生蚝</span><span class="pi-leader"></span><span class="pi-price">¥30</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">玫瑰龙虾</span><span class="pi-leader"></span><span class="pi-price">¥398</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">波士顿龙虾</span><span class="pi-leader"></span><span class="pi-price">¥368</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">澳龙</span><span class="pi-leader"></span><span class="pi-price">¥998</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">帝王蟹</span><span class="pi-leader"></span><span class="pi-price">¥280</span><span class="pi-unit">/斤</span></div>
+          </div>
+        </div>
+
+        <div class="banner-row single">
+          <div class="banner">海胆专区</div>
+        </div>
+        <div class="poster-cols single">
+          <div>
+            <div class="poster-item"><span class="pi-name">活马粪海胆 中号</span><span class="pi-leader"></span><span class="pi-price">¥68</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">活马粪海胆 大号</span><span class="pi-leader"></span><span class="pi-price">¥98</span><span class="pi-unit">/只</span></div>
+            <div class="poster-item"><span class="pi-name">木盒海胆</span><span class="pi-leader"></span><span class="pi-price">¥120</span><span class="pi-unit">/70g</span></div>
+            <div class="poster-item"><span class="pi-name">大盒海胆</span><span class="pi-leader"></span><span class="pi-price">¥380</span><span class="pi-unit">/160g</span></div>
+            <div class="poster-item"><span class="pi-name">野生紫胆 / 马粪海胆</span><span class="pi-leader"></span><span class="pi-price">¥680</span><span class="pi-unit">/180g</span></div>
+            <div class="poster-item"><span class="pi-name">锦云丹</span><span class="pi-leader"></span><span class="pi-price">¥880</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">云丹一号</span><span class="pi-leader"></span><span class="pi-price">¥950</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">流绮海胆（俄罗斯）</span><span class="pi-leader"></span><span class="pi-price">¥980</span><span class="pi-unit">/200g</span></div>
+            <div class="poster-item"><span class="pi-name">高排野生紫胆/马粪海胆</span><span class="pi-leader"></span><span class="pi-price">¥980</span><span class="pi-unit">/230g</span></div>
+            <div class="poster-item"><span class="pi-name">鸥洋水产</span><span class="pi-leader"></span><span class="pi-price">¥1680</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">大极上黑盒</span><span class="pi-leader"></span><span class="pi-price">¥2980</span><span class="pi-unit">/250g</span></div>
+            <div class="poster-item"><span class="pi-name">羽立海胆</span><span class="pi-leader"></span><span class="pi-price">¥10,000</span><span class="pi-unit">/定金</span></div>
+          </div>
+        </div>
+
+        <div class="note-line" style="margin-top:16px;">活鲜为时价 · 下单前请联系客服确认当日价格</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ====== 和牛（数据可修改）====== -->
 <div class="tab-panel" id="panel-beef">
   <div class="poster">
     <div class="poster-beef">
       <div class="poster-brand">
         <div class="brand-logo">隆牛肉铺</div>
-        <div class="brand-info"><strong>和牛 专门店</strong><br/>私人定制 上海同城宅急送</div>
+        <div class="brand-info"><strong>和牛 专门店</strong><br/>上海同城宅急送 最快三小时送到</div>
       </div>
       <div class="poster-inner">
 
@@ -330,77 +419,99 @@
   </div>
 </div>
 
-<!-- ====== 活鲜 ====== -->
-<div class="tab-panel" id="panel-seafood">
+<!-- ====== 清酒 ====== -->
+<div class="tab-panel" id="panel-sake">
+  <div class="poster">
+    <div class="poster-sashimi">
+      <div class="poster-inner">
+
+        <div class="img-menu" style="padding: 6px 2px 2px;">
+          <img alt="清酒酒单" class="menu-img no-zoom" src="sake_menu.jpg"/>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 蛋糕 ====== -->
+<div class="tab-panel" id="panel-cake">
+  <div class="poster">
+    <div class="poster-cake">
+      <div class="poster-brand">
+        <div class="brand-logo">鮨·桑</div>
+        <div class="brand-info"><strong>蛋糕 专门店</strong><br/>上海同城宅急送 最快三小时送到</div>
+      </div>
+      <div class="poster-inner">
+        <div class="cake-note">
+          所有价格单位为<strong>元</strong>，支持定制食材替换，详情请咨询客服。
+        </div>
+
+        <!-- 单层 -->
+        <div class="banner-row single">
+          <div class="banner">三文鱼蛋糕 · 单层</div>
+        </div>
+        <div class="cake-grid">
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_10.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 01</div><div class="cake-card-price">¥298</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_25.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 02</div><div class="cake-card-price">¥358</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_04.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 03</div><div class="cake-card-price">¥378</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_06.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 04</div><div class="cake-card-price">¥398</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_11.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 05</div><div class="cake-card-price">¥398</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_03.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 06</div><div class="cake-card-price">¥418</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_05.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 07</div><div class="cake-card-price">¥428</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_07.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 08</div><div class="cake-card-price">¥438</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_01.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 09</div><div class="cake-card-price">¥458</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_12.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 10</div><div class="cake-card-price">¥458</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_09.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 11</div><div class="cake-card-price">¥478</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_24.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 12</div><div class="cake-card-price">¥568</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_21.jpg"/><div class="cake-card-body"><div class="cake-card-name">单层 13</div><div class="cake-card-price">¥618</div></div></div>
+        </div>
+
+        <!-- 双层 -->
+        <div class="banner-row single" style="margin-top:12px;">
+          <div class="banner">三文鱼蛋糕 · 双层</div>
+        </div>
+        <div class="cake-grid">
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_15.jpg"/><div class="cake-card-body"><div class="cake-card-name">双层 01</div><div class="cake-card-price">¥538</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_19.jpg"/><div class="cake-card-body"><div class="cake-card-name">双层 02</div><div class="cake-card-price">¥598</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_20.jpg"/><div class="cake-card-body"><div class="cake-card-name">双层 03</div><div class="cake-card-price">¥618</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_23.jpg"/><div class="cake-card-body"><div class="cake-card-name">双层 04</div><div class="cake-card-price">¥738</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_22.jpg"/><div class="cake-card-body"><div class="cake-card-name">双层 05</div><div class="cake-card-price">¥898</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_26.jpg"/><div class="cake-card-body"><div class="cake-card-name">双层 06</div><div class="cake-card-price">¥958</div></div></div>
+        </div>
+
+        <!-- 刺身花盘 -->
+        <div class="banner-row single" style="margin-top:12px;">
+          <div class="banner">刺身花盘 · 纪念日</div>
+        </div>
+        <div class="cake-grid">
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_16.jpg"/><div class="cake-card-body"><div class="cake-card-name">刺身花盘 01</div><div class="cake-card-price">¥328</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_17.jpg"/><div class="cake-card-body"><div class="cake-card-name">刺身花盘 02</div><div class="cake-card-price">¥398</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_18.jpg"/><div class="cake-card-body"><div class="cake-card-name">刺身花盘 03</div><div class="cake-card-price">¥520</div></div></div>
+        </div>
+
+        <!-- 和牛蛋糕 -->
+        <div class="banner-row single" style="margin-top:12px;">
+          <div class="banner">和牛蛋糕 · 精选菜单</div>
+        </div>
+        <div class="cake-grid">
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_27.jpg"/><div class="cake-card-body"><div class="cake-card-name">和牛蛋糕 01</div><div class="cake-card-price">¥888</div></div></div>
+          <div class="cake-card"><img alt="" class="cake-card-img" src="salmon_cakes/cake_28.jpg"/><div class="cake-card-body"><div class="cake-card-name">和牛蛋糕 02</div><div class="cake-card-price">¥1688</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 下酒菜 ====== -->
+<div class="tab-panel" id="panel-snacks">
   <div class="poster">
     <div class="poster-sashimi">
       <div class="poster-brand">
-        <div class="brand-logo">隆牛</div>
-        <div class="brand-info"><strong>活鲜·海胆 专门店</strong><br/>私人定制 上海同城宅急送</div>
+        <div class="brand-logo">鮨·桑</div>
+        <div class="brand-info"><strong>下酒菜 专门店</strong><br/>上海同城宅急送 最快三小时送到</div>
       </div>
       <div class="poster-inner">
-
-        <div class="banner-row single">
-          <div class="banner">本月新品</div>
-        </div>
-        <div class="poster-cols single">
-          <div>
-            <div class="poster-item"><span class="pi-name">干式熟成金头鲷</span><span class="pi-leader"></span><span class="pi-price">¥118</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">干式熟成午鱼</span><span class="pi-leader"></span><span class="pi-price">¥158</span><span class="pi-unit">/条</span></div>
-          </div>
-        </div>
-
-        <div class="banner-row single">
-          <div class="banner">每日活鲜</div>
-        </div>
-        <div class="poster-cols single">
-          <div>
-            <div class="poster-item"><span class="pi-name">松叶蟹</span><span class="pi-leader"></span><span class="pi-price">¥328</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">小竹荚</span><span class="pi-leader"></span><span class="pi-price">¥85</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">大竹荚</span><span class="pi-leader"></span><span class="pi-price">¥198</span><span class="pi-unit">/斤</span></div>
-            <div class="poster-item"><span class="pi-name">𫚕鱼</span><span class="pi-leader"></span><span class="pi-price">¥108</span><span class="pi-unit">/200g</span></div>
-            <div class="poster-item"><span class="pi-name">真鲷</span><span class="pi-leader"></span><span class="pi-price">¥68</span><span class="pi-unit">/200g</span></div>
-            <div class="poster-item"><span class="pi-name">剥皮鱼</span><span class="pi-leader"></span><span class="pi-price">¥98</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">枪鱿鱼</span><span class="pi-leader"></span><span class="pi-price">¥298</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">金头鲷 整条造型</span><span class="pi-leader"></span><span class="pi-price">¥108</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">马友鱼</span><span class="pi-leader"></span><span class="pi-price">¥158</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">伊佐木</span><span class="pi-leader"></span><span class="pi-price">¥198</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">东星斑 整条造型</span><span class="pi-leader"></span><span class="pi-price">¥225</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">老鼠斑 整条造型</span><span class="pi-leader"></span><span class="pi-price">¥588</span><span class="pi-unit">/条</span></div>
-            <div class="poster-item"><span class="pi-name">加拿大象拔蚌</span><span class="pi-leader"></span><span class="pi-price">¥620</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">特价小象拔蚌</span><span class="pi-leader"></span><span class="pi-price">¥138</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">竹节虾</span><span class="pi-leader"></span><span class="pi-price">¥160</span><span class="pi-unit">/斤</span></div>
-            <div class="poster-item"><span class="pi-name">竹圣王</span><span class="pi-leader"></span><span class="pi-price">¥180</span><span class="pi-unit">/斤</span></div>
-            <div class="poster-item"><span class="pi-name">新西兰黑金鲍</span><span class="pi-leader"></span><span class="pi-price">¥310</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">吉娜朵生蚝 1号</span><span class="pi-leader"></span><span class="pi-price">¥49</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">吉娜朵生蚝 0号</span><span class="pi-leader"></span><span class="pi-price">¥59</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">法国钻石生蚝</span><span class="pi-leader"></span><span class="pi-price">¥30</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">玫瑰龙虾</span><span class="pi-leader"></span><span class="pi-price">¥398</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">波士顿龙虾</span><span class="pi-leader"></span><span class="pi-price">¥368</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">澳龙</span><span class="pi-leader"></span><span class="pi-price">¥998</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">帝王蟹</span><span class="pi-leader"></span><span class="pi-price">¥280</span><span class="pi-unit">/斤</span></div>
-          </div>
-        </div>
-
-        <div class="banner-row single">
-          <div class="banner">海胆专区</div>
-        </div>
-        <div class="poster-cols single">
-          <div>
-            <div class="poster-item"><span class="pi-name">活马粪海胆 中号</span><span class="pi-leader"></span><span class="pi-price">¥68</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">活马粪海胆 大号</span><span class="pi-leader"></span><span class="pi-price">¥98</span><span class="pi-unit">/只</span></div>
-            <div class="poster-item"><span class="pi-name">木盒海胆</span><span class="pi-leader"></span><span class="pi-price">¥120</span><span class="pi-unit">/70g</span></div>
-            <div class="poster-item"><span class="pi-name">大盒海胆</span><span class="pi-leader"></span><span class="pi-price">¥380</span><span class="pi-unit">/160g</span></div>
-            <div class="poster-item"><span class="pi-name">野生紫胆 / 马粪海胆</span><span class="pi-leader"></span><span class="pi-price">¥680</span><span class="pi-unit">/180g</span></div>
-            <div class="poster-item"><span class="pi-name">锦云丹</span><span class="pi-leader"></span><span class="pi-price">¥880</span><span class="pi-unit">/200g</span></div>
-            <div class="poster-item"><span class="pi-name">云丹一号</span><span class="pi-leader"></span><span class="pi-price">¥950</span><span class="pi-unit">/200g</span></div>
-            <div class="poster-item"><span class="pi-name">流绮海胆（俄罗斯）</span><span class="pi-leader"></span><span class="pi-price">¥980</span><span class="pi-unit">/200g</span></div>
-            <div class="poster-item"><span class="pi-name">高排野生紫胆/马粪海胆</span><span class="pi-leader"></span><span class="pi-price">¥980</span><span class="pi-unit">/230g</span></div>
-            <div class="poster-item"><span class="pi-name">鸥洋水产</span><span class="pi-leader"></span><span class="pi-price">¥1680</span><span class="pi-unit">/250g</span></div>
-            <div class="poster-item"><span class="pi-name">大极上黑盒</span><span class="pi-leader"></span><span class="pi-price">¥2980</span><span class="pi-unit">/250g</span></div>
-            <div class="poster-item"><span class="pi-name">羽立海胆</span><span class="pi-leader"></span><span class="pi-price">¥10,000</span><span class="pi-unit">/定金</span></div>
-          </div>
-        </div>
 
         <div class="banner-row single">
           <div class="banner">下酒菜</div>
@@ -420,68 +531,6 @@
           </div>
         </div>
 
-        <div class="note-line" style="margin-top:16px;">活鲜为时价 · 下单前请联系客服确认当日价格</div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ====== 清酒 ====== -->
-<div class="tab-panel" id="panel-sake">
-  <div class="img-menu">
-    <img alt="清酒酒单" class="menu-img" src="sake_menu.jpg"/>
-  </div>
-</div>
-
-<!-- ====== 蛋糕 ====== -->
-<div class="tab-panel" id="panel-cake">
-  <div class="cake-container">
-    <div class="cake-note">
-      所有价格单位为<strong>元</strong>，支持定制食材替换，详情请咨询客服。
-    </div>
-    <div class="tier">
-      <div class="tier-title">三文鱼蛋糕 · 单层</div>
-      <div class="grid">
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_10.jpg"/><div class="card-body"><div class="card-name">单层 01</div><div class="card-price">¥298</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_25.jpg"/><div class="card-body"><div class="card-name">单层 02</div><div class="card-price">¥358</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_04.jpg"/><div class="card-body"><div class="card-name">单层 03</div><div class="card-price">¥378</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_06.jpg"/><div class="card-body"><div class="card-name">单层 04</div><div class="card-price">¥398</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_11.jpg"/><div class="card-body"><div class="card-name">单层 05</div><div class="card-price">¥398</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_03.jpg"/><div class="card-body"><div class="card-name">单层 06</div><div class="card-price">¥418</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_05.jpg"/><div class="card-body"><div class="card-name">单层 07</div><div class="card-price">¥428</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_07.jpg"/><div class="card-body"><div class="card-name">单层 08</div><div class="card-price">¥438</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_01.jpg"/><div class="card-body"><div class="card-name">单层 09</div><div class="card-price">¥458</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_12.jpg"/><div class="card-body"><div class="card-name">单层 10</div><div class="card-price">¥458</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_09.jpg"/><div class="card-body"><div class="card-name">单层 11</div><div class="card-price">¥478</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_24.jpg"/><div class="card-body"><div class="card-name">单层 12</div><div class="card-price">¥568</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_21.jpg"/><div class="card-body"><div class="card-name">单层 13</div><div class="card-price">¥618</div></div></div>
-      </div>
-    </div>
-    <div class="tier">
-      <div class="tier-title">三文鱼蛋糕 · 双层</div>
-      <div class="grid">
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_15.jpg"/><div class="card-body"><div class="card-name">双层 01</div><div class="card-price">¥538</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_19.jpg"/><div class="card-body"><div class="card-name">双层 02</div><div class="card-price">¥598</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_20.jpg"/><div class="card-body"><div class="card-name">双层 03</div><div class="card-price">¥618</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_23.jpg"/><div class="card-body"><div class="card-name">双层 04</div><div class="card-price">¥738</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_22.jpg"/><div class="card-body"><div class="card-name">双层 05</div><div class="card-price">¥898</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_26.jpg"/><div class="card-body"><div class="card-name">双层 06</div><div class="card-price">¥958</div></div></div>
-      </div>
-    </div>
-    <div class="tier">
-      <div class="tier-title">刺身花盘 · 纪念日</div>
-      <div class="grid">
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_16.jpg"/><div class="card-body"><div class="card-name">刺身花盘 01</div><div class="card-price">¥328</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_17.jpg"/><div class="card-body"><div class="card-name">刺身花盘 02</div><div class="card-price">¥398</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_18.jpg"/><div class="card-body"><div class="card-name">刺身花盘 03</div><div class="card-price">¥520</div></div></div>
-      </div>
-    </div>
-    <div class="tier">
-      <div class="tier-title">和牛蛋糕 · 精选菜单</div>
-      <div class="grid">
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_27.jpg"/><div class="card-body"><div class="card-name">和牛蛋糕 01</div><div class="card-price">¥888</div></div></div>
-        <div class="card"><img alt="" class="card-img" src="salmon_cakes/cake_28.jpg"/><div class="card-body"><div class="card-name">和牛蛋糕 02</div><div class="card-price">¥1688</div></div></div>
       </div>
     </div>
   </div>
@@ -489,7 +538,6 @@
 
 <!-- 页脚 -->
 <div class="footer">
-  隆牛日料宅配 · 新鲜现做 · 上海同城配送<br/>
   请尽量提前一天预定 &nbsp;|&nbsp; 最终解释权归本店所有
 </div>
 
@@ -571,9 +619,9 @@
     var lb = document.getElementById('lightbox');
     var img = document.getElementById('lightboxImg');
 
-    // 绑定所有菜单图 & 蛋糕卡片图
+    // 绑定所有菜单图 & 蛋糕卡片图（排除 .no-zoom）
     function bindImages() {
-      var imgs = document.querySelectorAll('.menu-img, .card-img');
+      var imgs = document.querySelectorAll('.menu-img:not(.no-zoom), .cake-card-img');
       for (var i = 0; i < imgs.length; i++) {
         imgs[i].addEventListener('click', function(e) {
           img.src = this.src;
